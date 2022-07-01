@@ -26,9 +26,10 @@ public class FedexService {
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_JSON)
   public Label createLabel(Order order) throws InterruptedException {
-    System.out.println("Label generated -> "+UUID.randomUUID().toString());
+    UUID randomUUID = UUID.randomUUID();
+    System.out.println("Label generated -> "+randomUUID.toString());
     Thread.sleep(delay);
-    return new Label(UUID.randomUUID().toString(), LocalDate.now());
+    return new Label(randomUUID.toString(), LocalDate.now());
   }
 
 }
